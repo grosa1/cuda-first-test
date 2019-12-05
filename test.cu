@@ -6,11 +6,11 @@
 __global__ void op_single(int n, double r1) {
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
 	int step = blockDim.x * gridDim.x;
-	double total = 0.0;
+	float total = 0.0;
 	for (int i = index; i < n; i += step) {
 		total += atan(r1);
 	}
-	printf("tot single: %lf\n", total);
+	printf("tot single: %f\n", total);
 }
 
 __global__ void op_multi(int n, double r1, float *device_arr) {
